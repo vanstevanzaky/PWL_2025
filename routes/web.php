@@ -31,3 +31,8 @@ Route::get('/pesan', function () {
 Route::get('/about', function () {
     return '2341720101 STEVAN ZAKY SETYANT0';
 });
+
+Route::get('/user/{name}', function ($name) {
+    return 'Nama Saya '.$name;
+});
+
