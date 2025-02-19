@@ -28,4 +28,6 @@ Route::get('/pesan', function () {
     return 'selamat datang';
 });
 
-
+Route::get('/about', function () {
+    return '2341720101 STEVAN ZAKY SETYANT0';
+});
