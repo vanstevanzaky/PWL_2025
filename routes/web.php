@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,13 +24,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/hello', function () {
 //     return 'Hello World';
 // });
-Route::get('/world', function () {
-    return 'World';
-});
 
-Route::get('/pesan', function () {
-    return 'selamat datang';
-});
+// Route::get('/world', function () {
+//     return 'World';
+// });
+
+// Route::get('/pesan', function () {
+//     return 'selamat datang';
+// });
 
 // Route::get('/about', function () {
 //     return '2341720101 STEVAN ZAKY SETYANT0';
@@ -37,9 +41,9 @@ Route::get('/pesan', function () {
 //     return 'Nama Saya '.$name;
 // });
 
-Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
-    return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
-});
+// Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+//     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
+// });
 
 // Route::get('/articles/{id}', function ($id) {
 //     return 'Halaman Artikel dengan ID '.$id;
@@ -53,8 +57,13 @@ Route::get('/user/profile', function() {
     return 'Ini tadi profile kosongan lalu saya isi';   
 })->name('profile'); 
 
-Route::get('/hello', [WelcomeController::class,'hello']);
 
-Route::get('/', [WelcomeController::class,'index']);
-Route::get('/about', [WelcomeController::class,'about']);
-Route::get('/articles/{id}', [WelcomeController::class,'articles']);
+
+Route::get('/', [HomeController::class,'index']);
+Route::get('/hello', [HomeController::class,'hello']);
+Route::get('/world', [HomeController::class,'world']);
+Route::get('/pesan', [HomeController::class,'pesan']);
+Route::get('/about', [AboutController::class,'about']);
+Route::get('/user', [AboutController::class,'user']);
+Route::get('/articles/{id}', [ArticleController::class,'articles']);
+Route::get('/post/{post}/comments/{comment}', [ArticleController::class,'post']);
