@@ -54,19 +54,31 @@ use Illuminate\Support\Facades\Route;
 //     return 'Nama saya '.$name;
 // }); 
 
-Route::get('/user/profile', function() {
-    return 'Ini tadi profile kosongan lalu saya isi';   
-})->name('profile'); 
+Route::get('/user/profile', function () {
+    return 'Ini tadi profile kosongan lalu saya isi';
+})->name('profile');
 
 
 
-Route::get('/', [HomeController::class,'index']);
-Route::get('/hello', [HomeController::class,'hello']);
-Route::get('/world', [HomeController::class,'world']);
-Route::get('/pesan', [HomeController::class,'pesan']);
-Route::get('/about', [AboutController::class,'about']);
-Route::get('/user', [AboutController::class,'user']);
-Route::get('/articles/{id}', [ArticleController::class,'articles']);
-Route::get('/post/{post}/comments/{comment}', [ArticleController::class,'post']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/hello', [HomeController::class, 'hello']);
+Route::get('/world', [HomeController::class, 'world']);
+Route::get('/pesan', [HomeController::class, 'pesan']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/user', [AboutController::class, 'user']);
+Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+Route::get('/post/{post}/comments/{comment}', [ArticleController::class, 'post']);
 
-Route::resource('photos', PhotoController::class);
+// Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index',
+    'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create',
+    'store',
+    'update',
+    'destroy'
+]);
