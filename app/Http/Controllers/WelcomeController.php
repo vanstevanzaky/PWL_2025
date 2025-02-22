@@ -23,6 +23,8 @@ class WelcomeController extends Controller
         return 'Halaman Artikel dengan ID '.$id;
     }
     public function greeting(){
-        return view ('blog.hello', ['name' => 'Stevan Zaky S.']);
+        return view ('blog.hello')
+        ->with('name', 'Stevan Zaky')
+        ->with('occupation', 'Informatics Engineering');
     }
 }
