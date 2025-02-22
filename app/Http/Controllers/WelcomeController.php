@@ -10,4 +10,16 @@ class WelcomeController extends Controller
     {
         return 'Hello World';
     }
+    public function index() 
+    {
+        return 'Selamat Datang';
+    }
+    public function about() 
+    {
+        return 'STEVAN ZAKY SETYANTO 2341720101';
+    }
+    public function articles($id) 
+    {
+        return 'Halaman Artikel dengan ID '.$id;
+    }
 }

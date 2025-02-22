@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('Selamat Datang');
+// });
 
 // Route::get('/hello', function () {
 //     return 'Hello World';
@@ -29,9 +29,9 @@ Route::get('/pesan', function () {
     return 'selamat datang';
 });
 
-Route::get('/about', function () {
-    return '2341720101 STEVAN ZAKY SETYANT0';
-});
+// Route::get('/about', function () {
+//     return '2341720101 STEVAN ZAKY SETYANT0';
+// });
 
 // Route::get('/user/{name}', function ($name) {
 //     return 'Nama Saya '.$name;
@@ -41,9 +41,9 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
 });
 
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID '.$id;
-});
+// Route::get('/articles/{id}', function ($id) {
+//     return 'Halaman Artikel dengan ID '.$id;
+// });
 
 // Route::get('/user/{name?}', function ($name='John') {
 //     return 'Nama saya '.$name;
@@ -54,3 +54,7 @@ Route::get('/user/profile', function() {
 })->name('profile'); 
 
 Route::get('/hello', [WelcomeController::class,'hello']);
+
+Route::get('/', [WelcomeController::class,'index']);
+Route::get('/about', [WelcomeController::class,'about']);
+Route::get('/articles/{id}', [WelcomeController::class,'articles']);
