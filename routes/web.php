@@ -83,6 +83,9 @@ Route::resource('photos', PhotoController::class)->except([
     'destroy'
 ]);
 
-Route::get('/greeting', function () {
-     return view('blog.hello', ['name' => 'Stevan Zaky']);
-});
+// Route::get('/greeting', function () {
+//      return view('blog.hello', ['name' => 'Stevan Zaky']);
+// });
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
+
