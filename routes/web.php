@@ -84,5 +84,5 @@ Route::resource('photos', PhotoController::class)->except([
 ]);
 
 Route::get('/greeting', function () {
-     return view('hello', ['name' => 'Stevan Zaky']);
+     return view('blog.hello', ['name' => 'Stevan Zaky']);
 });
