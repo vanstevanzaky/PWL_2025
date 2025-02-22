@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    return 'Hello World';
-});
+// Route::get('/hello', function () {
+//     return 'Hello World';
+// });
 Route::get('/world', function () {
     return 'World';
 });
@@ -50,4 +51,6 @@ Route::get('/articles/{id}', function ($id) {
 
 Route::get('/user/profile', function() {
     return 'Ini tadi profile kosongan lalu saya isi';   
-})->name('profile');    
+})->name('profile'); 
+
+Route::get('/hello', [WelcomeController::class,'hello']);
